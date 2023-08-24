@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ExampleTest;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,8 @@ use App\Http\Controllers\ImageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome' , [ExampleTest::class , 'test_avatars_can_be_uploaded']);
 });
 
 
-Route::controller(ImageController::class)->group(function(){
-    Route::get('image-upload','index');
-    Route::post('image-upload','imageUpload')->name('image.store');
-});
+ 
